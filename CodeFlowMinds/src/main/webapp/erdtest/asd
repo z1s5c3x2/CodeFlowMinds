@@ -1,0 +1,52 @@
+@startuml
+class ChatDto {
+	-id:String	
+    -text:String
+}
+class DragDto {
+	-dragList:ArrayList<String>;
+	-brushColor:String;
+	-brushWidth:String;	
+}
+class LoomDto {
+	-loomNum:int;
+	-nowTurn:int;
+	-nowRound:int;
+	-allRound:int;
+	-limitPlayer:int;
+	-pwd:String;
+	-nowStatus:String;
+	-memberVector:Vector<MemberDto>;
+}
+class MemberDto {
+	-mid:String;
+	-mpwd:String;
+	-winCount:int;
+}
+class SendDto<T> {
+	-loomNum:int;
+	-type:String;
+	-object:<T>; 
+}
+class LoomList {
+	-vec:Vector<LoomDto>;
+}
+class SessionList {
+	-session:HashMap<Integer,Vector<Session>>;
+}
+class MemberDao{
+	+signUp();
+	+login();
+}
+class ServerSocket{
+    +서버메시지()
+}
+LoomList <-- LoomDto
+SendDto <-- ChatDto
+SendDto <-- DragDto
+SessionList <-- SendDto
+ServerSocket <-- SessionList
+SessionList <-- LoomList
+MemberDao <-- MemberDto
+LoomDto <-- MemberDto
+@enduml

@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'LINESeedKR-Bd';
+}
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+.turn
+{
+	background-color: #52616A !important;
+}
+html{
+	background-color: #52616A !important;
+}
+/* 전체 구간 css */
+body{
+	margin: 0;
+  	padding: 0;
+  	background-color: #52616A !important;
+}
+.roomWrap{
+	width: 1440px;
+	height: 900px;
+ 	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin : 30px auto;
+	padding: 20px;
+ 	background-color: #C9D6DE; /* 배경색 변경 */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.roomWrap .topInfo{
+	display: flex;
+}
+.roomWrap .problemBox{
+	margin : auto auto;
+}
+/* 상단 구역 스타일 */
+.topInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #52616A; /* 배경색 추가 */
+  padding: 10px 20px; /* 상하 10px, 좌우 20px의 안쪽 여백 추가 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  color: white; /* 글자색 변경 */
+}
+
+/* 각 상단 정보 스타일 */
+.topInfo div {font-weight: bold;}
+
+/* 라운드 정보 스타일 */
+.topInfo div:nth-child(1) {
+  background-color: #1E2022; /* 배경색 변경 */
+  padding: 5px 10px; /* 상하 5px, 좌우 10px의 안쪽 여백 추가 */
+  border-radius: 5px; /* 모서리 둥글게 */
+}
+
+/* 문제 정보 스타일 */
+.topInfo div:nth-child(2) {
+  flex: 1; /* 공간을 나눠 가짐 */
+  margin: 0 10px; /* 좌우 여백 추가 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+/* 유저 전체 정보 구간 스타일 */
+.roomWrap .userInfoWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 30%;
+  background-color: #C9D6DE;
+  margin-left: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 유저 정보 구역 스타일 */
+.roomWrap .userInfoBox {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  gap: 10px;
+  overflow-y: auto; /* 넘치면 스크롤 생성*/
+  background-color: #F0F5F9;
+  padding: 20px; /* 내부 여백을 크게 조정 */
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+/* 유저 정보 제목 스타일 */
+.roomWrap .userInfoTitle {
+	display: flex;
+ 	font-weight: bold;
+  	margin-bottom: 10px; /* 아래 여백 추가 */
+}
+/* 타이틀쪽 이름 */
+.userInfoTitle .titleName{
+	display: inline-block;
+	margin-left: 150px;
+}
+/* 각 유저 정보 스타일 */
+.userInfoBox .userInfo {
+  display: flex;
+  justify-content: space-between;
+  background-color: #F0F5F9;
+  padding: 10px;
+  border-bottom: 1px solid #C9D6DE;
+  border-radius: 5px; /* 모서리 둥글게 */
+}
+/* 버튼 구역 스타일 */
+.userInfoBox .btnBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 아래 버튼 사이의 간격 */
+}
+/* 버튼 스타일 */
+.btnBox button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  background: #222;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+/* 채팅 구역 스타일 */
+.chatBox {
+  width: 400px;
+  height: 500px;
+  font-size: 14px;
+  border: 1px solid #C9D6DE; /* 테두리 추가 */
+  background-color: #F0F5F9;
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+  padding: 10px; margin-top: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+/* 각 채팅 메시지 스타일 */
+.chatBox .chat {
+	display: flex;
+    justify-content: space-between;
+    padding: 4px 3px 1px 3px;
+    border-radius: 2px;
+    background-color: #C9D6DE;
+    align-items: center;
+    color: white;
+}
+/* 채팅 메시지 시간 스타일 */
+.chatBox .chat span:nth-child(2) {
+  color: #52616A;
+  font-size: 12px;
+}
+/* 채팅 치는 구역 스타일 */
+.onChat {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 98%;
+}
+/* 채팅 입력란 스타일 */
+.onChat .doChat{	
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #C9D6DE;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none; /* 포커스 효과 제거 */
+  margin-bottom: 19px;
+}
+
+/* 채팅 입력 버튼 스타일 */
+.onChat button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #52616A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.answer
+{
+	justify-content: center;
+}
+/* 채팅 입력 버튼 호버 효과 */
+.onChat button:hover {
+  background-color: #1E2022;
+}
+
+.chatBox
+{
+	overflow-y: scroll; /* y축 스크롤 */
+}
+
+/* ==================캔버스 설정 시작 ================ */
+canvas{
+    display: block;
+  	margin: 0 auto;
+  	cursor: pointer;
+ 	background-color: #F0F5F9;
+}
+/* 툴모음 전체 박스 */
+.tools{
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top:30px;
+    display: flex;
+    justify-content:center;
+    flex-direction: row;
+}
+
+/* 툴 컬러 버튼 */
+.tools .color-field {
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	border: 2px solid white;
+ 	align-self: center;
+	margin-right: 10px;
+	background-color: #52616A; /* 배경색 변경 */
+}
+
+/* 되돌리기,지우기,다운로드 버튼 */
+.tools .button {
+	align-self: center;
+	width: 100px;
+ 	height: 40px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	background: #1E2022; /* 배경색 변경 */
+	font-weight: bold;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+/* 컬러피커 */
+.color-picker{
+    align-self: center;
+    margin:0 10px;
+    height:50px;
+}
+/* 펜크기 */
+.pen-range{
+    align-self: center;
+    margin:0 10px;  
+}
+/*===============캔버스 css 끝 =================*/
+.chatWall{
+	display: inline-block;
+	word-break: break-all;
+}
+/*모달*/
+#myModal{
+	display: none;
+	position: absolute;
+    width: 630px;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    background-color: #F0F5F9;
+    max-height: 700px;
+    padding: 50px;
+   	border-radius: 15px;
+   	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.me{
+	background-color:#52616A !important;
+}
+/* 부트스트랩 모달 내용 구역 */
+.rankModalContent{
+	height: 900px;
+	padding: 35px;
+	font-size:33px;
+}
+/* 랭킹 내용 타이틀 */
+.rankingTitle{
+	display: flex;
+	align-items: center;
+}
+.rankTitleNo{ margin-right:82px;}
+.rankTitleUserName{margin-right:310px;}
+.userRank{ display:flex; padding: 30px 0px 20px 0px; border-bottom: 1px solid #C9D6DE;}
+.rankNo{margin-right: 100px;}
+.rankUserName{width: 346px;}
+.rankTitleUserWinCount{ width: 170px;}
+.rankingTitle button{
+	width: 30px;
+    padding: 4px;
+    border: 1px solid #ffffff;
+    background-color: #52616A;
+    border-radius: 7px;
+    color: #ffffff;}
+/*카테고리 모달*/
+.modalContent{
+	display: flex;
+	flex-direction: column;
+}
+/* 카테고리 내용*/
+.categoryContent{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 18px 0px;
+}
+/* 카테고리 input태그 스타일*/
+.selectNum{
+	width: 30px;
+    height: 6px;
+    padding: 10px;
+    margin: 10px 5px 0px 0px;
+    border-radius: 20px;
+    border-color: #e8e8e8;
+}	
+/* 선택 버튼 스타일*/
+.chooseNum{
+	padding: 5px;
+    background-color: #ffffff;
+    border-radius: 7px;
+}

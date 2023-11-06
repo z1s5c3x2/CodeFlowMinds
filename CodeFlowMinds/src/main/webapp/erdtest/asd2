@@ -1,0 +1,51 @@
+@startuml
+class ChatDto {
+	-mid:String	
+    -text:String
+}
+class DrawDto {
+	-dragList:ArrayList<String>;
+	-brushColor:String;
+	-brushWidth:String;	
+}
+class RoomDto {
+	-RoomNum:int;
+	-nowTurn:int;
+	-nowRound:int;
+	-allRound:int;
+	-limitPlayer:int;
+	-readyCount:int;
+	-pwd:String;
+	-nowStatus:String;
+	-resultVector:Vector<MemberDto>;
+}
+
+class SendDto<T> {
+	-RoomNum:int;
+	-type:String;
+	-object:<T>; 
+}
+
+class ServerSocket{
+	-RoomVector:Vector<RoomDto>;
+    +서버메시지()
+}
+class MemberDao{
+	+signUp();
+	+login();
+}
+class MemberDto{
+	mid:String;
+	mpwd:String;
+	winCount:int;
+	isTurn:boolean;
+	isReady:boolean;
+	memSession:Session;
+}
+ServerSocket <-- RoomDto
+SendDto <-- ChatDto
+SendDto <-- DrawDto
+RoomDto <-- MemberDto
+ServerSocket <-- SendDto
+MemberDao <-- MemberDto
+@enduml
